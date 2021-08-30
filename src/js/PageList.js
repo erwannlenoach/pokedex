@@ -9,13 +9,29 @@ const PageList = (argument ) => {
 
     async function fetchPokemon(value) {
 
-      fetch(`https://pokeapi.co/api/v2//pokemon/${value}`)
+      fetch(`https://pokeapi.co/api/v2//pokemon/${value}`, 
+      
+      
+      )
       .then((response) => response.json())
-      .then((response) => { document.querySelector('#result').innerHTML = 
-      `<div>
-      <a>${response.name}</a>
-      </div>`
+      .then((response) => { console.log(response), displayPokemon(response)
     })
+  }
+
+
+  const displayPokemon = (pokemon) => 
+  {
+    document.querySelector('#result').innerHTML = 
+    `<div class="card">
+      <div class="container">
+        <img id="picture-pokemon" src="${pokemon.sprites.front_default}">
+      </div>
+      <div id="info-pokemon">
+          <a>${pokemon.name}</a>
+          <a>${pokemon.game_indices[18].game_index}</a>
+      </div>
+    </div>`
+
   }
 
   
