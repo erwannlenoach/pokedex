@@ -1,41 +1,47 @@
 const search = () => {
-  let input = document.getElementById('input-search').value 
-  PageList(input)
-}
+  let input = document.getElementById('input-search').value
+  
+    // only display the pokemon with the corresponding name
+  }
 
 window.search = search;
 
-const PageList = (argument ) => {
+const PageList = () => {
 
-    async function fetchPokemon(value) {
+  async function fetchPokemons() {
+    let j = 10
 
-      fetch(`https://pokeapi.co/api/v2//pokemon/${value}`, 
-      
-      
+    for (let i = 1; i < j; i++) {
+      fetch(`https://pokeapi.co/api/v2//pokemon/${i}`,
       )
-      .then((response) => response.json())
-      .then((response) => { console.log(response), displayPokemon(response)
-    })
+        .then((response) => response.json())
+        .then((response) => {
+          let { game_indices, name, sprites} = response;
+          console.log(response), displayPokemons(game_indices, name, sprites)
+        })
+    }
   }
 
+ 
+  
+  fetchPokemons()
 
-  const displayPokemon = (pokemon) => 
-  {
-    document.querySelector('#result').innerHTML = 
-    `<div class="card">
-      <div class="container">
-        <img id="picture-pokemon" src="${pokemon.sprites.front_default}">
-      </div>
-      <div id="info-pokemon">
-          <a>${pokemon.name}</a>
-          <a>${pokemon.game_indices[18].game_index}</a>
-      </div>
+  const displayPokemons = (game_indices, name, sprites) => {
+    
+    document.querySelector('#pageContent').innerHTML +=
+      `<div class="card" id=${game_indices[18].game_index}>
+        <div class="container">
+        <a href="#pagedetail/${name}"><img id="picture-pokemon" src="${sprites.front_default}" ></a>
+        </div>
+        <div id="info-pokemon">
+          <a class="index-pokemon">${game_indices[18].game_index} </a>
+          <a  class="name-pokemon">${name}</a>
+        </div>
     </div>`
 
   }
-
-  
-  fetchPokemon(argument)
 }
+
+PageList()
 
 export { PageList }

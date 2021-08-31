@@ -1,5 +1,11 @@
-$color-red: rgb(255, 20, 20);
-
-p {
-  color: $color-red;
+#searchbar {
+  border-radius: 25%;
 }
+
+#result {
+  display: grid;
+  grid-template-columns: repeat(10, 3fr);
+}
+
+
+
