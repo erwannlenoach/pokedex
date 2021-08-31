@@ -17,13 +17,12 @@ const PageList = () => {
         .then((response) => response.json())
         .then((response) => {
           let { game_indices, name, sprites} = response;
-          console.log(response), displayPokemons(game_indices, name, sprites)
+          console.log(response), displayPokemons(game_indices, name, sprites['other']['official-artwork']['front_default'])
         })
     }
   }
 
  
-  
   fetchPokemons()
 
   const displayPokemons = (game_indices, name, sprites) => {
@@ -31,7 +30,7 @@ const PageList = () => {
     document.querySelector('#pageContent').innerHTML +=
       `<div class="card" id=${game_indices[18].game_index}>
         <div class="container">
-        <a href="#pagedetail/${name}"><img id="picture-pokemon" src="${sprites.front_default}" ></a>
+        <a href="#pagedetail/${name}"><img id="picture-pokemon" src="${sprites}" ></a>
         </div>
         <div id="info-pokemon">
           <a class="index-pokemon">${game_indices[18].game_index} </a>
