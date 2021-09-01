@@ -28,13 +28,17 @@ const PageDetail = (argument = " ") => {
             <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
             </div>
             <div id="info-pokemon-detail">
-              <p id="name-pokemon-detail">${name_uppercase}</p>
-              <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
-              <p id="height-pokemon-detail">Height : ${height}</p>
-              <p id="weight-pokemon-detail">Weight: ${weight} </p>
-              <div id="types">
+                <div id="name-index">
+                <p id="name-pokemon-detail">${name_uppercase}</p>
+                <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
               </div>
-              <div id="stats">
+              <div id="height-weight">
+                <p id="height-pokemon-detail">Height : ${height}</p>
+                <p id="weight-pokemon-detail"> Weight : ${weight} </p>
+              </div>
+              <div class="types">
+            </div>
+              <div class="stats">
               </div>
             </div>
         </div>`
@@ -42,7 +46,7 @@ const PageDetail = (argument = " ") => {
 
     const displayTypes = (types) => {
 
-        let pokemonTypes = document.querySelector(`#types`)
+        let pokemonTypes = document.querySelector(`.types`)
 
         pokemonTypes.innerHTML += types.map((type) => {
             return `<p>${type.type.name}`
@@ -52,10 +56,12 @@ const PageDetail = (argument = " ") => {
     }
     const displayStats = (stats) => {
 
-        let pokemonStats = document.querySelector(`#stats`)
-
+        let pokemonStats = document.querySelector(`.stats`)
+       
         pokemonStats.innerHTML += stats.map((stat) => {
-            return `<p>${stat.stat.name}: ${stat.base_stat}  `
+            return `
+            <p>${stat.stat.name}: ${stat.base_stat}  
+            `
         }
         ).join("")
 
