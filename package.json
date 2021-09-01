@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "axios": "^0.21.1",
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
   },

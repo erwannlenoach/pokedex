@@ -1,3 +1,5 @@
+
+
 const PageDetail = (argument = " ") => {
 
     let slug = window.location.hash.substring(1).split("/")[1]
@@ -9,24 +11,53 @@ const PageDetail = (argument = " ") => {
             .then((response) => response.json())
             .then((response) => {
                 let { game_indices, name, sprites, stats, height, weight, types } = response;
-                console.log(response), displayPokemon(game_indices, name, sprites, stats, height, weight, types)
+                console.log(response), displayPokemon(game_indices, name, sprites['other']['official-artwork']['front_default'], height, weight)
+                displayTypes(types), displayStats(stats)
             })
     }
 
 
 
-    const displayPokemon = (game_indices, name, sprites, stats, height, weight, types) => {
+    const displayPokemon = (game_indices, name, sprites, height, weight) => {
 
-        document.querySelector('#pageContent').innerHTML =
-            `<div class="card" id=${game_indices[18].game_index}>
-            <div class="container">
-            <a href="#pagedetail/${name}"><img id="picture-pokemon" src="${sprites.front_default}" ></a>
+        let name_uppercase = name.charAt(0).toUpperCase() + name.slice(1)
+
+        pageContent.innerHTML =
+            `<div class="card-detail" id=${game_indices[18].game_index}>
+            <div class="container-detail">
+            <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
             </div>
-            <div id="info-pokemon">
-              <a class="index-pokemon">${game_indices[18].game_index} </a>
-              <a  class="name-pokemon">${name}</a>
+            <div id="info-pokemon-detail">
+              <p id="name-pokemon-detail">${name_uppercase}</p>
+              <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
+              <p id="height-pokemon-detail">Height : ${height}</p>
+              <p id="weight-pokemon-detail">Weight: ${weight} </p>
+              <div id="types">
+              </div>
+              <div id="stats">
+              </div>
             </div>
         </div>`
+    }
+
+    const displayTypes = (types) => {
+
+        let pokemonTypes = document.querySelector(`#types`)
+
+        pokemonTypes.innerHTML += types.map((type) => {
+            return `<p>${type.type.name}`
+        }
+        ).join("")
+
+    }
+    const displayStats = (stats) => {
+
+        let pokemonStats = document.querySelector(`#stats`)
+
+        pokemonStats.innerHTML += stats.map((stat) => {
+            return `<p>${stat.stat.name}: ${stat.base_stat}  `
+        }
+        ).join("")
 
     }
 
@@ -43,6 +74,4 @@ const PageDetail = (argument = " ") => {
 }
 
 
-
 export { PageDetail }
-
