@@ -1,5 +1,6 @@
 import { routes } from './routes'
 import '../sass/style.scss';
+import img from '../images/pokemon_logo.png'
 
 
 let pageArgument;
@@ -15,3 +16,4 @@ const setRoute = () => {
 
 window.addEventListener("hashchange", () => setRoute());
 window.addEventListener("DOMContentLoaded", () => setRoute());
+

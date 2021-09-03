@@ -24,24 +24,24 @@ const PageDetail = (argument = " ") => {
 
         pageContent.innerHTML =
             `<div class="card-detail" id=${game_indices[18].game_index}>
-            <div class="container-detail">
-            <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
-            </div>
-            <div id="info-pokemon-detail">
                 <div id="name-index">
-                <p id="name-pokemon-detail">${name_uppercase}</p>
-                <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
-              </div>
-              <div id="height-weight">
-                <p id="height-pokemon-detail">Height : ${height}</p>
-                <p id="weight-pokemon-detail"> Weight : ${weight} </p>
-              </div>
-              <div class="types">
-            </div>
-              <div class="stats">
-              </div>
-            </div>
-        </div>`
+                    <p id="name-pokemon-detail">${name_uppercase}</p>
+                    <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
+                </div>
+                <div class="container-detail">
+                    <div id="id-detail">
+                        <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
+                        <div id="height-weight">
+                            <p id="height-pokemon-detail">Height : ${height}</p>
+                            <p id="weight-pokemon-detail"> Weight : ${weight} </p>
+                        </div>
+                        <div class="types">
+                        </div>
+                    </div>
+                    <div class="stats">
+                    </div> 
+                </div>
+            <div>`
     }
 
     const displayTypes = (types) => {

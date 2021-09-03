@@ -1,12 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
+header {
+  margin:20px;
+  justify-content: center;
+  display: flex;
+}
+
 body {
   font-family: 'Roboto Slab', serif;
   background-color: beige;
 }
 
+#logo {
+  width:200px
+  
+}
+
 #searchbar {
+  margin:20px;
   border-radius: 25%;
+  justify-content: center;
+  display: flex;
+  outline: none;
+}
+#input-search{
+  border-radius: 25px;
+  height: 25px;
+  width: 200px;
+  padding: 3px;
 }
 
 #pageContent {
@@ -44,27 +65,47 @@ body {
 
 .card-detail {
   display: flex;
+  flex-direction: column;
   
 }
 
 .card-detail > div {
   margin: 50px
 }
-#info-pokemon-detail {
-  display: flex;
-  flex-direction: column;
-  font-size: x-large;
-  justify-content: center;
-  
+
+.container-detail {
+  isplay: flex;
+    background-color: cadetblue;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#id-detail {
+  background-color: lightgrey;
+    border-radius: 10px;
+}
+
+#picture-pokemon-detail {
+  width: 200px;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+
+
+#info-pokemon-detail > div {
+  margin:10px
 }
 
 #name-index {
   display: flex;
+  justify-content: center;
   font-size: xxx-large;
 }
 
 #name-index > p {
   margin: 5px;
+
 }
 
 #index-pokemon-detail {
@@ -94,6 +135,10 @@ body {
   grid-gap: 5px;
   background-color: lightgrey;
   border-radius: 10px;
+  max-height: 150px;
+  max-height: 150px;
+    margin-left: 10px;
+    margin-top: 30PX;
 }
 
 
