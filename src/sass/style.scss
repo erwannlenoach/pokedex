@@ -37,6 +37,12 @@ body {
   margin-top: 20px;
 }
 
+#info-id {
+  padding: 20px;
+  justify-items: center;
+  display: grid;
+}
+
 #picture-pokemon {
   max-width: 200px;
 
@@ -74,24 +80,25 @@ body {
 }
 
 .container-detail {
-  isplay: flex;
     background-color: cadetblue;
     padding: 20px;
     border-radius: 10px;
+    text-transform: capitalize;
 }
 
+#picture-id {
+  display: flex;
+}
 #id-detail {
   background-color: lightgrey;
     border-radius: 10px;
+    display: flex;
 }
 
 #picture-pokemon-detail {
   width: 200px;
-  background-color: grey;
-  border-radius: 10px;
+    border-radius: 10px;
 }
-
-
 
 #info-pokemon-detail > div {
   margin:10px
@@ -99,8 +106,7 @@ body {
 
 #name-index {
   display: flex;
-  justify-content: center;
-  font-size: xxx-large;
+  font-size: xx-large;
 }
 
 #name-index > p {
@@ -123,8 +129,17 @@ body {
 
 .types {
   display: flex;
+
 }
 
+.typeButton {
+  border-radius: 5px;
+  width: 100px;
+  color: black;
+  font-size: medium;
+  margin: 10px;
+  text-transform: capitalize;
+}
 .types > p {
   margin: 3px;
 }

@@ -21,21 +21,28 @@ const PageDetail = (argument = " ") => {
     const displayPokemon = (game_indices, name, sprites, height, weight) => {
 
         let name_uppercase = name.charAt(0).toUpperCase() + name.slice(1)
+        let adjustedWeight = weight / 10
+        let adjustedHeight = height / 10
 
         pageContent.innerHTML =
             `<div class="card-detail" id=${game_indices[18].game_index}>
-                <div id="name-index">
-                    <p id="name-pokemon-detail">${name_uppercase}</p>
-                    <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
-                </div>
+              
                 <div class="container-detail">
                     <div id="id-detail">
-                        <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
-                        <div id="height-weight">
-                            <p id="height-pokemon-detail">Height : ${height}</p>
-                            <p id="weight-pokemon-detail"> Weight : ${weight} </p>
-                        </div>
-                        <div class="types">
+                        <div id="picture-id">
+                            <a href="#pagedetail/${name}"><img id="picture-pokemon-detail" src="${sprites}" ></a>
+                            <div id="info-id">
+                                <div id="name-index">
+                                    <p id="name-pokemon-detail">${name_uppercase}</p>
+                                    <p id="index-pokemon-detail">N°${game_indices[18].game_index} </p>
+                                </div>
+                                <div id="height-weight">
+                                    <p id="height-pokemon-detail">Height : ${adjustedHeight} m</p>
+                                    <p id="weight-pokemon-detail"> Weight : ${adjustedWeight} kg </p>
+                                </div>
+                                <div class="types">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="stats">
@@ -49,7 +56,7 @@ const PageDetail = (argument = " ") => {
         let pokemonTypes = document.querySelector(`.types`)
 
         pokemonTypes.innerHTML += types.map((type) => {
-            return `<p>${type.type.name}`
+            return `<button class="typeButton">${type.type.name}</button>`
         }
         ).join("")
 
