@@ -14,13 +14,13 @@ const PageList = () => {
 
   const fetchPokemons = async () => {
 
-    let j = 10
+    let j = 152
 
     for (let i = 1; i < j; i++) {
       try {
         const response = await axios.get(`https://pokeapi.co/api/v2//pokemon/${i}`);
         console.log(response.data)
-        displayPokemons(response.data.game_indices, response.data.name, response.data.sprites['other']['official-artwork']['front_default'], response.data.types)
+        setTimeout(displayPokemons(response.data.game_indices, response.data.name, response.data.sprites['other']['official-artwork']['front_default'], response.data.types), 1000)
       }
       catch (error) {
         // handle error
@@ -29,6 +29,7 @@ const PageList = () => {
 
     }
   }
+
 
 
   fetchPokemons()
@@ -50,7 +51,44 @@ const PageList = () => {
       `
   }
 
+
+  const enterClick = () => {
+    document.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        inputSearch()
+      }
+    })
+
+  }
+
+  const inputSearch = () => {
+    let inputValue = document.getElementById("input-search").value
+    search(inputValue)
+  }
+  const search = async (input) => {
+
+        try {
+          const response = await axios.get(`https://pokeapi.co/api/v2//pokemon/${input}`);
+          console.log(response.data)
+         
+
+          
+          setTimeout(displayPokemons(response.data.game_indices, response.data.name, response.data.sprites['other']['official-artwork']['front_default'], response.data.types), 1000)
+        }
+        catch (error) {
+          // handle error
+          console.log(error);
+        }
+  
+      
+    }
+
+  
+  
+
+enterClick()
 }
+
 
 PageList()
 

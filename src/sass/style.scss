@@ -16,6 +16,9 @@ body {
   
 }
 
+input {
+  outline: none;
+}
 #searchbar {
   margin:20px;
   border-radius: 25%;
@@ -23,6 +26,7 @@ body {
   display: flex;
   outline: none;
 }
+
 #input-search{
   border-radius: 25px;
   height: 25px;

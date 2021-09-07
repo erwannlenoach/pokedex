@@ -20,6 +20,10 @@ body {
   width: 200px;
 }
 
+input {
+  outline: none;
+}
+
 #searchbar {
   margin: 20px;
   border-radius: 25%;
